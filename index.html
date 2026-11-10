@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diaksara. · Pendidikan Bahasa dan Sastra Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Figtree:wght@400;500;700&family=Noto+Sans+Javanese:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--nila:#12123a;--nila2:#1d1d58;--emas:#f2b53c;--emas2:#ffe08a;--ui:Unbounded,system-ui,sans-serif;--jv:"Noto Sans Javanese",serif;
+--batik:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23f2b53c' stroke-opacity='.55' stroke-width='1.6'%3E%3Cellipse cx='30' cy='15' rx='9' ry='15'/%3E%3Cellipse cx='30' cy='45' rx='9' ry='15'/%3E%3Cellipse cx='15' cy='30' rx='15' ry='9'/%3E%3Cellipse cx='45' cy='30' rx='15' ry='9'/%3E%3C/g%3E%3C/svg%3E")}
+.dk{--fg:#f4f2ff;--bg:var(--nila);--bg2:var(--nila2);--bd:rgba(255,255,255,.2);--mu:#b3b5e0;--ac:var(--emas)}
+.lt{--fg:#12123a;--bg:#f3f1fc;--bg2:#fff;--bd:rgba(18,18,58,.16);--mu:#55577f;--ac:#b27800}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px;padding-top:env(safe-area-inset-top,0);background:var(--nila)}
+body{margin:0;font:400 1.02rem/1.7 Figtree,system-ui,sans-serif;color:#f4f2ff;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom,0)}
+h1,h2,h3,h4{font-family:var(--ui);margin:0;line-height:1.2;color:var(--fg)}
+p{margin:0}a{color:inherit}button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--emas);outline-offset:2px}
+section{background:var(--bg);color:var(--fg)}
+.wrap{max-width:1100px;margin:0 auto;padding:88px max(20px,env(safe-area-inset-left)) 88px max(20px,env(safe-area-inset-right))}
+.sec-h{font-size:clamp(1.5rem,4vw,2.3rem);font-weight:800;margin-bottom:12px;letter-spacing:-.01em}
+.note{color:var(--mu);margin-bottom:32px}
+.band{height:48px;background:var(--nila) var(--batik) repeat-x 0 50%;animation:drift 12s linear infinite;border-block:3px solid var(--emas)}
+.tag{display:inline-block;background:var(--c,var(--emas));color:var(--nila);border-radius:999px;padding:1px 12px;font:700 .75rem/1.6 Figtree,sans-serif}
+.btn{display:inline-block;border-radius:999px;padding:11px 26px;font:700 .95rem Figtree,sans-serif;text-decoration:none;cursor:pointer;border:2px solid var(--emas);background:var(--emas);color:var(--nila)}
+.btn:hover{background:var(--emas2);border-color:var(--emas2)}
+.btn.sec{background:transparent;color:var(--emas)}.btn.sec:hover{background:rgba(242,181,60,.15)}
+.lt .btn.sec{color:var(--nila);border-color:var(--nila)}
+.btn[disabled]{background:transparent;border-color:var(--bd);color:var(--mu);cursor:not-allowed}
+.pill{border:1.5px solid var(--bd);background:transparent;color:var(--fg);border-radius:999px;padding:6px 20px;font:500 .9rem Figtree,sans-serif;cursor:pointer}
+.pill:hover{border-color:var(--emas)}
+.pill.on{background:var(--emas);border-color:var(--emas);color:var(--nila);font-weight:700}
+.tabs,.fl{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}.fl{margin-bottom:0}
+.card{background:var(--bg2);border:1.5px solid var(--bd);border-radius:16px}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(18,18,58,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.12);padding-top:env(safe-area-inset-top,0)}
+nav .in{display:flex;align-items:center;gap:16px;height:58px;padding:0 20px;max-width:1180px;margin:auto}
+.brand{font:800 1.1rem var(--ui);text-decoration:none;color:#fff}.brand i{color:var(--emas);font-style:normal}
+.links{margin-left:auto;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}.links::-webkit-scrollbar{display:none}
+.links a{white-space:nowrap;text-decoration:none;font-size:.9rem;font-weight:500;padding:6px 14px;border-radius:999px;color:#f4f2ff}
+.links a:hover{background:rgba(255,255,255,.12)}
+.links a.hl{background:var(--emas);color:var(--nila);font-weight:700}
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 58px);display:grid;place-items:center;text-align:center;overflow:hidden;background:radial-gradient(circle at 50% 50%,#2a2a7c 0,var(--nila) 62%);padding:72px 20px}
+.hero{--R:min(40vmin,380px);--S:clamp(2.2rem,6vmin,3.1rem)}
+.ring{position:absolute;left:50%;top:50%;width:0;height:0;--r:var(--R);--s:var(--S);animation:spin 140s linear infinite}
+.ring span{position:absolute;left:0;top:0;width:var(--s);height:var(--s);margin:calc(var(--s)/-2) 0 0 calc(var(--s)/-2);display:grid;place-items:center;font:400 calc(var(--s)*.85)/1 var(--jv);color:var(--emas);transform:rotate(calc(var(--i)*18deg)) translateY(calc(var(--r)*-1));opacity:.85}
+.ring span:nth-child(3n){opacity:.4}
+.hero::before,.hero::after{content:"";position:absolute;left:50%;top:50%;aspect-ratio:1;transform:translate(-50%,-50%);border:1.5px dashed rgba(242,181,60,.35);border-radius:50%;pointer-events:none;z-index:0}
+.hero::before{width:calc((var(--R) - var(--S)*.75)*2)}
+.hero::after{width:calc((var(--R) + var(--S)*.75)*2)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .in{position:relative;z-index:1;max-width:640px}
+.hero h1{font-weight:800;font-size:clamp(2.5rem,10.5vw,6.6rem);letter-spacing:-.04em;color:#fff;margin-bottom:12px}
+.hero h1 span{color:var(--emas)}
+.hero .jur{font-weight:500;color:var(--emas2);margin-bottom:8px}
+.hero .lead{color:#d8d6f5;max-width:46ch;margin:0 auto 28px;font-size:1.08rem}
+.hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* tentang */
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+.two p{font-size:1.12rem}
+#stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.st{background:var(--nila);color:#fff;border-radius:16px;padding:18px 20px}
+.st b{display:block;font:800 2.2rem/1.1 var(--ui);color:var(--emas)}.st span{font-size:.9rem;color:#c9c8ee}
+/* anggota */
+.roll{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.mb{display:flex;align-items:center;gap:12px;text-align:left;background:var(--bg2);border:1.5px solid var(--bd);border-radius:14px;padding:10px 14px;cursor:pointer;min-width:0}
+.mb:hover{border-color:var(--emas);background:rgba(242,181,60,.14)}
+.g{flex:none;display:grid;place-items:center;font-family:var(--jv);line-height:1.5}
+.mb .g{width:44px;height:44px;border-radius:50%;background:var(--nila);color:var(--emas);font-size:1.4rem}
+.mb .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+/* matkul */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.mk{position:relative;overflow:hidden;padding:20px;border-radius:16px;background:var(--bg2);border:1.5px solid var(--bd);border-top:5px solid var(--c);line-height:1.55}
+.mk .g{position:absolute;right:6px;top:-6px;font-size:5.5rem;color:var(--c);opacity:.16}
+.mk .top{position:relative;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.mk .sks{font-size:.8rem;color:var(--mu)}
+.mk h3{position:relative;font-size:1.02rem;margin-bottom:6px}.mk p{position:relative;font-size:.92rem;color:var(--mu)}
+.mk .dos{margin-top:12px;padding-top:10px;border-top:1px dashed var(--bd);color:var(--fg)}.mk .dos small{display:block;font-size:.72rem;color:var(--c)}
+.c-Bahasa{--c:#ff7a59}.c-Sastra{--c:#a78bfa}.c-Keterampilan{--c:#2dd4bf}.c-Kependidikan{--c:#f2b53c}.c-Kebangsaan{--c:#f472b6}
+/* majalah */
+.latest{display:flex;gap:64px;align-items:center;margin-bottom:64px}
+.cover{aspect-ratio:3/4;width:230px;flex:none;background:linear-gradient(160deg,#2a2a7c,var(--nila));border:2px solid var(--emas);border-radius:6px 16px 16px 6px;box-shadow:-10px 0 0 var(--emas),0 0 60px rgba(242,181,60,.3);color:#fff;padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;line-height:1.25;position:relative;margin-left:10px}
+.cover::after{content:"ꦢ";position:absolute;right:-8px;bottom:36px;font:400 6rem/1 var(--jv);color:var(--emas);opacity:.18}
+.cover small{font-size:.72rem;color:var(--emas2)}.cover b{font:800 1.5rem/1.1 var(--ui);position:relative}.cover em{font-style:normal;font-size:.85rem;position:relative}
+.cover.img{padding:0;background:#fff}.cover.img::after{content:none}.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.latest .txt{min-width:0}.latest h2{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;margin-bottom:12px}
+.latest .desc{color:var(--mu);max-width:48ch;margin-bottom:12px}.latest .meta{font-weight:700;color:var(--emas);margin-bottom:20px}
+.latest .btns,.md .acts{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.vol h3{font-size:1.2rem;margin:36px 0 18px}
+.ed{display:flex;flex-direction:column;cursor:pointer;overflow:hidden}.ed:hover{border-color:var(--emas)}
+.ed .th{background:rgba(255,255,255,.05);padding:22px 22px 22px 32px;display:flex;justify-content:center}
+.ed .cover{width:112px;padding:10px 8px;box-shadow:-6px 0 0 var(--emas)}
+.ed .cover b{font-size:.85rem}.ed .cover small{font-size:.55rem}.ed .cover::after{font-size:3rem;bottom:20px}
+.ed .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px;flex:1;line-height:1.5}
+.ed h3{font-size:1rem}.ed .d{font-size:.8rem;color:var(--emas);font-weight:700}.ed p{flex:1;font-size:.9rem;color:var(--mu)}
+.ed .btn{align-self:flex-start;margin-top:8px;padding:4px 18px;font-size:.85rem}
+.prog{display:flex;align-items:center;gap:14px;margin-bottom:20px;color:var(--mu)}.prog b{color:var(--emas)}
+.prog .bar{flex:1;max-width:300px;height:10px;background:var(--bg2);border:1.5px solid var(--bd);border-radius:99px;overflow:hidden}.prog .bar i{display:block;height:100%;background:var(--emas)}
+.wtools{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:24px}
+.wtools .fl{margin:0}
+#wSearch{flex:1;min-width:200px;max-width:320px;background:var(--bg2);color:var(--fg);border:1.5px solid var(--bd);border-radius:999px;padding:8px 18px;font:inherit}
+#wSearch::placeholder{color:var(--mu)}
+.wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.wc{display:flex;flex-direction:column;gap:10px;text-align:left;background:var(--bg2);border:1.5px solid var(--bd);border-radius:16px;padding:22px 24px;text-decoration:none;cursor:pointer;line-height:1.6;color:var(--fg)}
+.wc:hover{border-color:var(--emas)}
+.wc h3{font:700 1.2rem/1.35 Figtree,sans-serif}
+.wc p{font-size:.95rem;color:var(--mu)}
+.wk{align-self:flex-start;font:700 .75rem/1.6 Figtree,sans-serif;padding:0 12px;border-radius:999px;background:var(--k);color:var(--nila)}
+.k-feature{--k:#2dd4bf}.k-opini{--k:#ff7a59}.k-artikel{--k:#a78bfa}.k-kolom{--k:#f472b6}
+.wby{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px dashed var(--bd)}
+.av{flex:none;width:38px;height:38px;border-radius:50%;background:var(--emas);color:var(--nila);display:grid;place-items:center;font:700 .8rem Figtree,sans-serif}
+.wn{flex:1;min-width:0;font-weight:600;line-height:1.3}.wn small{display:block;font-weight:400;color:var(--mu)}
+.wt{font:700 .72rem Figtree,sans-serif;border:1.5px solid var(--emas);color:var(--emas);border-radius:999px;padding:2px 10px}
+.wempty{grid-column:1/-1;margin:0}
+.fr{display:flex;align-items:baseline;gap:12px;justify-content:space-between;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:10px 14px;text-decoration:none;cursor:pointer}
+.fr:hover{background:rgba(242,181,60,.14)}.fr i{display:none}
+.fr .t{font-weight:700}.fr .by{color:var(--emas);font-size:.88rem;white-space:nowrap}
+/* redaksi */
+.tree{display:flex;flex-direction:column;align-items:center}
+.nd{border:2px solid var(--emas);border-radius:14px;background:var(--bg2);padding:10px 22px;text-align:center;min-width:160px;font-weight:700}
+.nd.top{background:var(--emas);color:var(--nila)}.nd small{display:block;font-size:.72rem;font-weight:500;opacity:.85}
+.vl{width:2px;height:28px;background:var(--emas)}
+.lv{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.tms{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;width:100%}
+.tm{background:var(--bg2);border:1.5px solid var(--bd);border-top:4px solid var(--emas);border-radius:14px;padding:16px 18px;line-height:1.5}
+.tm h4{font-size:.95rem}.tm .rl{margin:2px 0 10px;font-size:.85rem;color:var(--mu)}
+.sb{padding:7px 0;border-top:1px dashed var(--bd)}.sb b{display:block;font-size:.85rem;color:var(--emas2)}.sb span{font-size:.9rem;color:var(--mu)}
+/* modal */
+.ov{position:fixed;inset:0;background:rgba(8,8,32,.72);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}.ov.show{display:flex}
+.md{--fg:#12123a;--mu:#55577f;--bd:rgba(18,18,58,.16);background:#fff;color:var(--fg);border-top:6px solid var(--emas);border-radius:18px;max-width:560px;width:100%;max-height:88vh;overflow-y:auto;padding:28px 26px;position:relative}
+.md h2{font-size:1.3rem;margin:10px 0 6px;padding-right:30px}.md .sub{color:var(--mu);margin-bottom:16px}
+.x{position:absolute;top:8px;right:12px;border:0;background:none;font-size:2rem;line-height:1;cursor:pointer;padding:0 8px}
+.md h3{font-size:1rem;margin:18px 0 8px}.md ul{padding-left:20px;margin:0 0 16px}.md .art p{margin-bottom:12px}
+.md .cover{margin:6px auto 22px;width:170px}
+.md .btn.sec{color:var(--nila);border-color:var(--nila)}
+.pf{width:150px;aspect-ratio:3/4;margin:6px auto 18px;border-radius:16px;overflow:hidden;border:3px solid var(--emas);background:var(--nila);color:var(--emas);display:grid;place-items:center;font:800 2.6rem var(--ui)}
+.pf img{width:100%;height:100%;object-fit:cover;display:block}
+.dl{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;margin:16px 0}.dl dt{color:var(--mu)}.dl dd{margin:0}
+.quote{border-left:4px solid var(--emas);background:#fff7e0;padding:12px 16px;border-radius:0 12px 12px 0;font-style:italic}
+footer{background:#0a0a26;color:#b3b5e0;text-align:center;padding:24px 20px;font-size:.88rem}
+/* animasi */
+@keyframes rise{from{opacity:0;transform:translateY(.6em) rotate(var(--rot,0deg))}}
+@keyframes drift{to{background-position:48px 50%}}
+@keyframes bob{50%{transform:translateY(-12px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(242,181,60,.55)}60%{box-shadow:0 0 0 9px rgba(242,181,60,0)}}
+@keyframes pulse{50%{text-shadow:0 0 .4em rgba(242,181,60,.95)}}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(16px)}}
+@keyframes grow{from{transform:scaleX(0)}}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.95)}}
+@keyframes fade{from{opacity:0}}
+#ring2{--r:calc(var(--R)*.54);--s:calc(var(--S)*.7);animation:spin 90s linear infinite reverse}
+#ring2 span{transform:rotate(calc(var(--i)*36deg)) translateY(calc(var(--r)*-1));opacity:.45}
+.hero h1 b{display:inline-block;font:inherit;--rot:6deg;animation:rise .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(.15s + var(--i)*.07s)}
+.hero h1 span{display:inline-block;animation:rise .9s .85s both,pulse 3s 2s ease-in-out infinite}
+.hero .jur{animation:rise .9s both}.hero .lead{animation:rise .9s 1s both}.hero .btns{animation:rise .9s 1.15s both}
+.scroll{z-index:1;position:absolute;bottom:22px;left:50%;width:26px;height:42px;margin-left:-13px;border:2px solid var(--emas);border-radius:14px;animation:fade 1s 1.8s both}
+.scroll span{position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--emas);animation:wheel 1.8s ease-in-out infinite}
+.latest>.cover{animation:bob 6s ease-in-out infinite}
+.links a.hl{animation:glow 2.8s ease-in-out infinite}
+.mb .g{transition:transform .6s}.mb:hover .g{transform:rotate(360deg)}
+.prog .bar i{transform-origin:left;animation:grow 1.2s .2s ease-out both}
+.ov.show{animation:fade .25s}.ov.show .md{animation:pop .35s cubic-bezier(.2,.9,.3,1.2)}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media(max-width:820px){
+ .wrap{padding-top:64px;padding-bottom:64px}.two{grid-template-columns:1fr;gap:32px}
+ .wgrid{grid-template-columns:1fr}
+ .latest{flex-direction:column;text-align:center;gap:44px}.latest .btns{justify-content:center}.latest .desc{margin-inline:auto}
+ .hero{--R:min(42vmin,300px);--S:clamp(1.9rem,6vmin,2.4rem)}
+}
+/* ===== LAPISAN FUTURISTIK ===== */
+:root{--batik:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23f2b53c' stroke-opacity='.6' stroke-width='1.4'%3E%3Cpath d='M24 8l4 12 12 4-12 4-4 12-4-12-12-4 12-4z'/%3E%3Cpath d='M0 0l5 5M48 0l-5 5M0 48l5-5M48 48l-5-5'/%3E%3C/g%3E%3Cg fill='%23f2b53c' fill-opacity='.7'%3E%3Ccircle cx='24' cy='24' r='2'/%3E%3Ccircle cx='0' cy='0' r='2.5'/%3E%3Ccircle cx='48' cy='0' r='2.5'/%3E%3Ccircle cx='0' cy='48' r='2.5'/%3E%3Ccircle cx='48' cy='48' r='2.5'/%3E%3C/g%3E%3C/svg%3E");--void:#060620;--cy:#ffd27a;--vi:#a78bfa}
+html,body{background:var(--void)}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+nav,section,.hero,.band,footer{position:relative;z-index:1}
+nav{position:sticky;z-index:30}
+.dk,.lt{--fg:#f1f0ff;--bg:transparent;--bg2:rgba(26,26,92,.46);--bd:rgba(150,140,255,.24);--mu:#aeb0dc;--ac:var(--emas)}
+section{background:rgba(6,6,32,.4);overflow:hidden}
+.lt .btn.sec{color:var(--emas);border-color:var(--emas)}
+/* nav */
+nav{background:rgba(8,8,36,.72);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(242,181,60,.28)}
+.pg{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform-origin:left;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--cy),var(--emas),var(--vi));box-shadow:0 0 12px var(--emas)}
+.brand{text-shadow:0 0 18px rgba(242,181,60,.6)}
+/* hero */
+.hero{background:radial-gradient(ellipse at 50% 42%,rgba(60,50,170,.5),transparent 62%)}
+.aurora{position:absolute;inset:0;overflow:hidden;z-index:0}
+.aurora i{position:absolute;border-radius:50%;filter:blur(70px);mix-blend-mode:screen;animation:blob 14s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:46vmax;height:46vmax;left:-12vmax;top:-14vmax;background:#4b3cff;opacity:.5}
+.aurora i:nth-child(2){width:38vmax;height:38vmax;right:-10vmax;top:10%;background:#f2b53c;opacity:.26;animation-duration:18s}
+.aurora i:nth-child(3){width:34vmax;height:34vmax;left:30%;bottom:-18vmax;background:#ff7a59;opacity:.22;animation-duration:22s}
+@keyframes blob{to{transform:translate(8vmax,6vmax) scale(1.2)}}
+.gridfloor{position:absolute;left:0;right:0;bottom:0;height:42%;z-index:0;background:var(--batik);background-size:96px;opacity:.3;-webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent);animation:drift2 30s linear infinite}
+@keyframes drift2{to{background-position:96px 96px}}
+.hud{position:absolute;left:50%;top:50%;width:calc(var(--R)*2.5);aspect-ratio:1;transform:translate(-50%,-50%);z-index:0;pointer-events:none}
+.hud i{position:absolute;inset:0;border-radius:50%}
+.hud i:nth-child(1){border:2px solid rgba(242,181,60,.55);border-style:dotted;animation:spin 40s linear infinite}
+.hud i:nth-child(2){inset:9%;border:1px dashed rgba(242,181,60,.5);animation:spin 30s linear infinite reverse}
+.hud i:nth-child(3){inset:-22%;background:repeating-conic-gradient(rgba(255,224,138,.09) 0deg,transparent 7deg,transparent 15deg);filter:blur(5px);-webkit-mask:radial-gradient(circle,transparent 36%,#000 58%,transparent 72%);mask:radial-gradient(circle,transparent 36%,#000 58%,transparent 72%);animation:spin 120s linear infinite,breathe 7s ease-in-out infinite alternate}
+.ring span{text-shadow:0 0 14px rgba(242,181,60,.8)}
+.chip{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;padding:5px 16px;border:1px solid rgba(255,210,122,.4);border-radius:999px;background:rgba(255,210,122,.08);font:600 .8rem Figtree,sans-serif;color:var(--emas2);animation:rise .9s both}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--cy);animation:ping 1.8s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,210,122,.8)}70%,100%{box-shadow:0 0 0 10px transparent}}
+.hero h1{text-shadow:0 0 40px rgba(242,181,60,.3)}
+.hero h1 b{animation:rise .9s calc(.15s + var(--i)*.07s) cubic-bezier(.2,.8,.2,1) both,neon 5s calc(1.6s + var(--i)*.3s) ease-in-out infinite}
+@keyframes neon{0%,100%{text-shadow:0 0 0 transparent}50%{text-shadow:0 0 22px rgba(242,181,60,.75)}}
+/* tombol */
+.btn{position:relative;overflow:hidden;box-shadow:0 0 22px rgba(242,181,60,.35)}
+.btn.sec,.btn[disabled]{box-shadow:none}
+.btn:not(.sec):not([disabled])::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:shine 3.6s ease-in-out infinite}
+@keyframes shine{50%,100%{transform:translateX(120%)}}
+.pill.on{box-shadow:0 0 16px rgba(242,181,60,.5)}
+/* marquee */
+.track{display:flex;flex:none;align-items:center;gap:28px;padding-right:28px;white-space:nowrap;animation:mq 45s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+.marq{display:flex;overflow:hidden;margin:0 0 28px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marq .track{gap:12px;padding-right:12px;animation-duration:110s}
+.marq .track span{padding:6px 16px;border:1px solid var(--bd);border-radius:999px;background:rgba(26,26,92,.46);color:var(--emas2);font-size:.85rem}
+/* judul */
+.sec-h,.latest h2{background:linear-gradient(90deg,#fff,var(--emas2),var(--cy),#fff);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 7s linear infinite}
+@keyframes sheen{to{background-position:250% 0}}
+.sec-h::after{content:"";display:block;width:84px;height:3px;margin-top:14px;background:linear-gradient(90deg,var(--emas),var(--emas2));box-shadow:0 0 12px rgba(242,181,60,.6);animation:wid 3s ease-in-out infinite alternate}
+@keyframes wid{to{width:200px}}
+/* kaca + sorot kursor */
+.card,.mb,.mk,.wc,.tm,.nd,.st{background-color:var(--bg2);background-image:radial-gradient(320px circle at var(--mx,50%) var(--my,-60%),rgba(242,181,60,.2),transparent 70%);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-color:var(--bd)}
+.nd.top{box-shadow:0 0 30px rgba(242,181,60,.5);animation:glow 2.8s ease-in-out infinite}
+.mk:hover,.wc:hover,.ed:hover,.tm:hover,.mb:hover{border-color:var(--emas);box-shadow:0 0 26px rgba(242,181,60,.2)}
+.mk{box-shadow:0 -10px 26px -14px var(--c)}
+.mk .g{animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(10px) rotate(6deg)}}
+.mb .g{box-shadow:0 0 14px rgba(242,181,60,.35)}
+.st{position:relative;overflow:hidden;border:1px solid var(--bd)}
+.st::after{content:"";position:absolute;right:-18px;bottom:-18px;width:80px;height:80px;background:var(--batik);background-size:40px;opacity:.35;border-radius:50%;animation:spin 50s linear infinite}
+.tl{display:flex;flex-direction:column;gap:24px}
+.two .type{font:700 clamp(1.05rem,2.6vw,1.4rem)/1.4 var(--ui);min-height:2.9em}
+.type b{color:var(--emas);font-weight:700}
+.cur{display:inline-block;width:3px;height:1.1em;margin-left:4px;vertical-align:-.15em;background:var(--cy);box-shadow:0 0 10px var(--cy);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+/* sampul majalah */
+.holo{position:relative;flex:none;animation:bob 6s ease-in-out infinite}
+.holo>i{position:absolute;left:50%;top:50%;--w:340px;width:var(--w);height:var(--w);margin:calc(var(--w)/-2) 0 0 calc(var(--w)/-2);border-radius:50%;border:1.5px dashed rgba(242,181,60,.5);pointer-events:none;animation:spin 18s linear infinite}
+.holo>i+i{--w:450px;border-color:rgba(255,210,122,.35);animation-duration:27s;animation-direction:reverse}
+.holo>i::after{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--emas);box-shadow:0 0 14px var(--emas)}
+.holo>i+i::after{background:var(--cy);box-shadow:0 0 14px var(--cy)}
+.cover::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.24) 50%,transparent 65%);transform:translateX(-100%);animation:shine 5s ease-in-out infinite;pointer-events:none}
+/* redaksi + progres */
+.vl{background:linear-gradient(var(--cy),var(--emas),var(--cy));background-size:100% 200%;box-shadow:0 0 10px var(--emas);animation:flow 1.6s linear infinite}
+@keyframes flow{to{background-position:0 -200%}}
+.prog .bar i{background:linear-gradient(90deg,var(--cy),var(--emas));box-shadow:0 0 12px var(--emas)}
+#wSearch:focus{outline:0;border-color:var(--cy);box-shadow:0 0 16px rgba(255,210,122,.4)}
+/* modal gelap */
+.ov{background:rgba(4,4,24,.78);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.md{--fg:#f1f0ff;--mu:#aeb0dc;--bd:rgba(150,140,255,.28);background:rgba(16,16,60,.95);box-shadow:0 0 60px rgba(242,181,60,.25),inset 0 0 0 1px rgba(242,181,60,.2)}
+.md .btn.sec{color:var(--emas);border-color:var(--emas)}
+.quote{background:rgba(242,181,60,.1)}
+.pf{box-shadow:0 0 30px rgba(242,181,60,.4)}
+/* footer */
+footer{background:rgba(5,5,24,.88);overflow:hidden}
+footer::before{content:"";display:block;height:2px;margin:-24px -20px 22px;background:linear-gradient(90deg,transparent,var(--emas),var(--cy),transparent);background-size:200% 100%;animation:sheen 4s linear infinite}
+.fw{display:flex;justify-content:center;gap:10px;margin-bottom:12px;font:400 1.6rem/1 var(--jv);color:var(--emas)}
+.fw span{animation:wave 2.4s ease-in-out infinite;animation-delay:calc(var(--i)*.12s)}
+@keyframes wave{50%{transform:translateY(-10px);opacity:.4;text-shadow:0 0 14px var(--emas)}}
+@media(max-width:820px){.holo>i{--w:300px}.holo>i+i{--w:390px}}
+section::before{content:"";position:absolute;inset:0;z-index:0;background:var(--batik);background-size:96px;opacity:.07;pointer-events:none;animation:drift2 60s linear infinite}
+.wrap{position:relative;z-index:1}
+.hud::before{content:"";position:absolute;inset:14%;border-radius:50%;background:radial-gradient(circle,rgba(255,210,122,.2),rgba(255,210,122,.06) 50%,transparent 70%);animation:breathe 7s ease-in-out infinite alternate}
+@keyframes breathe{from{opacity:.55}to{opacity:1}}
+/* orbit di dalam lingkaran */
+.hud .orb{inset:var(--in);border:1px solid rgba(242,181,60,.28);animation:spin var(--t) linear infinite}
+.hud .orb::after{content:"";position:absolute;top:-4px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--emas2);box-shadow:0 0 12px var(--emas);animation:spin var(--t) linear infinite reverse}
+.hud .o1{--in:21%;--t:16s}
+.hud .o2{--in:31%;--t:26s;animation-direction:reverse}
+.hud .o2::after{content:"ꦢ";top:-14px;width:28px;height:28px;margin-left:-14px;display:grid;place-items:center;background:var(--nila);border:1.5px solid var(--emas);font:400 1rem/1 var(--jv);color:var(--emas);animation-direction:normal}
+.hud .o3{--in:41%;--t:11s}
+.hud .o3::after{width:6px;height:6px;margin-left:-3px;top:-3px}
+
+/* pita ornamen sulur horizontal */
+:root{--orn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='64' viewBox='0 0 120 64'%3E%3Cg fill='none' stroke='%23f2b53c' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M0 32C20 8 40 8 60 32S100 56 120 32'/%3E%3Cpath d='M0 32C20 56 40 56 60 32S100 8 120 32'/%3E%3Cpath d='M30 14C23 12 21 5 26 3C30 2 32 6 29 7'/%3E%3Cpath d='M30 14C37 12 39 5 34 3C30 2 28 6 31 7'/%3E%3Cg transform='translate%2860 0%29'%3E%3Cpath d='M30 14C23 12 21 5 26 3C30 2 32 6 29 7'/%3E%3Cpath d='M30 14C37 12 39 5 34 3C30 2 28 6 31 7'/%3E%3C/g%3E%3Cg transform='translate%280 64%29 scale%281 -1%29'%3E%3Cpath d='M30 14C23 12 21 5 26 3C30 2 32 6 29 7'/%3E%3Cpath d='M30 14C37 12 39 5 34 3C30 2 28 6 31 7'/%3E%3Cg transform='translate%2860 0%29'%3E%3Cpath d='M30 14C23 12 21 5 26 3C30 2 32 6 29 7'/%3E%3Cpath d='M30 14C37 12 39 5 34 3C30 2 28 6 31 7'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3Cg fill='%23f2b53c'%3E%3Cpath d='M60 19C53 14 54 6 60 1C66 6 67 14 60 19z'/%3E%3Cpath d='M0 19C-7 14 -6 6 0 1C6 6 7 14 0 19z'/%3E%3Cpath d='M120 19C113 14 114 6 120 1C126 6 127 14 120 19z'/%3E%3Cg transform='translate%280 64%29 scale%281 -1%29'%3E%3Cpath d='M60 19C53 14 54 6 60 1C66 6 67 14 60 19z'/%3E%3Cpath d='M0 19C-7 14 -6 6 0 1C6 6 7 14 0 19z'/%3E%3Cpath d='M120 19C113 14 114 6 120 1C126 6 127 14 120 19z'/%3E%3C/g%3E%3Ccircle cx='30' cy='32' r='3.4'/%3E%3Ccircle cx='90' cy='32' r='3.4'/%3E%3Ccircle cx='60' cy='32' r='2.4'/%3E%3Ccircle cx='0' cy='32' r='2.4'/%3E%3Ccircle cx='120' cy='32' r='2.4'/%3E%3C/g%3E%3C/svg%3E")}
+.band{height:64px;padding:0;display:block;background-color:transparent;background-image:var(--orn);background-repeat:repeat-x;background-size:120px 64px;background-position:0 50%;border-block:0;filter:drop-shadow(0 0 6px rgba(242,181,60,.35));animation:drift3 22s linear infinite}
+.band.rev{animation-direction:reverse}
+@keyframes drift3{to{background-position:120px 50%}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<nav><i class="pg" id="pg"></i><div class="in"><a class="brand" href="#top">Diaksara<i>.</i></a>
+<div class="links"><a class="hl" href="#majalah">Suara Diaksara.</a><a href="#tentang">Tentang</a><a href="#anggota">Kulawarga</a><a href="#matkul">Mata Kuliah</a></div></div></nav>
+
+<header class="hero dk" id="top">
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="gridfloor" aria-hidden="true"></div><div class="hud" aria-hidden="true"><i></i><i></i><i></i><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+<div class="ring" id="ring" aria-hidden="true"></div>
+<div class="ring" id="ring2" aria-hidden="true"></div>
+<div class="in">
+<p class="chip"><i></i>Semester Ganjil 2026/2027 sedang berjalan</p>
+<p class="jur">Pendidikan Bahasa dan Sastra Indonesia</p>
+<h1>Diaksara<span>.</span></h1>
+<p class="lead">Kelas yang merawat aksara, menyalakan literasi, dan menjaga budaya lokal lewat kata.</p>
+<div class="btns"><a class="btn" href="#majalah">Baca Suara Diaksara.</a><a class="btn sec" href="#anggota">Kenali Kulawarga Kami</a></div>
+</div>
+<a class="scroll" href="#majalah" aria-label="Gulir ke bawah"><span></span></a>
+</header>
+<div class="band"></div>
+
+<section id="majalah" class="dk"><div class="wrap">
+<div class="latest" id="latest"></div>
+<div class="tabs" role="tablist">
+<button class="pill on" role="tab" id="tab-edisi" data-tab="edisi">Semua Edisi</button>
+<button class="pill" role="tab" id="tab-feature" data-tab="feature">Tulisan Kulawarga</button>
+<button class="pill" role="tab" id="tab-redaksi" data-tab="redaksi">Struktur Redaksi</button></div>
+<div id="panel-edisi" role="tabpanel"><div class="fl" id="filter"></div><div id="vols"></div></div>
+<div id="panel-feature" role="tabpanel" hidden>
+<div class="wtools"><div class="fl" id="wTabs"></div><input id="wSearch" type="search" placeholder="Cari judul atau penulis" aria-label="Cari tulisan"></div>
+<div class="prog" id="prog"></div>
+<div class="wgrid" id="fGrid"></div>
+</div>
+<div id="panel-redaksi" role="tabpanel" hidden>
+<div class="tree">
+<div class="nd top"><small>Pemimpin Redaksi</small>Difvan</div><div class="vl"></div>
+<div class="lv"><div class="nd"><small>Sekretaris &amp; Redaktur Pelaksana</small>Dini</div><div class="nd"><small>Sekretaris &amp; Redaktur Pelaksana</small>Serli</div></div><div class="vl"></div>
+<div class="tms"><div class="tm"><h4>Penulis / Reporter</h4><p class="rl">Meriset, mewawancarai, menulis</p><div class="sb"><b>Sejarah &amp; Warisan Budaya</b><span>Amel, Arin, Jessica</span></div><div class="sb"><b>Kuliner &amp; Etnolinguistik Lokal</b><span>Aulia, Tina, Chantika</span></div><div class="sb"><b>Sastra &amp; Tokoh Pegiat Literasi</b><span>Diza, Martha, Citra</span></div><div class="sb"><b>Komunitas &amp; Seni Pertunjukan</b><span>Muslim, Byan, Maya, Novi</span></div><div class="sb"><b>Kolom Opini &amp; Esai Siswa</b><span>Kelvi, Aisyah, Devy</span></div></div><div class="tm"><h4>Editor Bahasa</h4><p class="rl">Menjaga bahasa &amp; fakta</p><div class="sb"><b>Tim Penyunting</b><span>Salsa, Fanasha, Icha</span></div></div><div class="tm"><h4>Visual &amp; Dokumentasi</h4><p class="rl">Foto lapangan &amp; ilustrasi</p><div class="sb"><b>Fotografer Lapangan</b><span>Fariska, Acha, Aldi</span></div><div class="sb"><b>Ilustrator &amp; Desain Grafis</b><span>Geri, Indah, Salma, Afiza</span></div></div><div class="tm"><h4>Layout &amp; Produksi</h4><p class="rl">Desain, review, publikasi</p><div class="sb"><b>Art Director</b><span>Elsa, Anisa</span></div><div class="sb"><b>Desainer Layout</b><span>Dina, Vina, Rachma</span></div><div class="sb"><b>Final Review &amp; Publisher</b><span>Kesi, Lala</span></div></div></div>
+
+</div>
+<p class="note" id="redNote" style="margin:24px 0 0"></p>
+</div></div></section>
+
+<section id="tentang" class="lt"><div class="wrap">
+<h2 class="sec-h">Dari aksara, tumbuh karya</h2>
+<div class="two">
+<div class="tl"><p>Diaksara. adalah kelas mahasiswa Pendidikan Bahasa dan Sastra Indonesia, FPBS, IKIP PGRI Bojonegoro, tingkat II, semester ganjil 2026/2027. Di sini kami belajar, menulis, dan berkarya bersama: dari kajian bahasa dan sastra hingga majalah kelas yang memotret budaya dan literasi lokal.</p><p class="type">Kami <b id="tw"></b><i class="cur"></i></p></div>
+<div id="stats"></div>
+</div>
+</div></section>
+
+<section id="anggota" class="lt"><div class="wrap">
+<h2 class="sec-h">Kulawarga Diaksara.</h2>
+<p class="note">Klik nama untuk melihat perkenalan singkat.</p>
+<div class="marq" id="nm" aria-hidden="true"></div>
+<div class="roll" id="members"></div>
+</div></section>
+
+<div class="band rev"></div>
+<section id="matkul" class="dk"><div class="wrap">
+<h2 class="sec-h">Yang kami pelajari</h2>
+<div class="tabs" id="mkTabs" role="tablist" style="margin:20px 0 16px"></div>
+<p class="note" id="mkNote" style="margin-bottom:24px"></p>
+<div class="grid" id="mkGrid"></div>
+</div></section>
+
+<footer><div class="fw" id="fw" aria-hidden="true"></div>© 2026 Diaksara. · Pendidikan Bahasa dan Sastra Indonesia · IKIP PGRI Bojonegoro</footer>
+
+<div class="ov" id="ov" aria-hidden="true"><div class="md" role="dialog" aria-modal="true" id="md"><button class="x" id="xBtn" aria-label="Tutup">×</button><div id="mdBody"></div></div></div>
+
+<script>
+/* ===== DATA (edit di sini) ===== */
+
+// Ganti daftar nama ini dengan nama anggota kelas yang sebenarnya.
+// Nama yang tertutup coretan di daftar belum dimasukkan; tambahkan atau hapus nama di sini (jumlah anggota dihitung otomatis).
+const names = [
+ "Elsa Widiyana Sari","Cantika Atmariani","Afiza Nuryatus Sholihah","Martha Setya Ning Tiyas","Anisa Nur Achasyah",
+ "Agustina Nur Rosyida","Dina Permata Sari","Muslim Andryana","Indah Qhoirunnisa","Devy Citra Lestari",
+ "Dini Febri Zayyinatul Milah","M. Aldi Adi Tama","Difvan Sastria Irgianata","Setyo Giri Aji Pamungkas","Byan Saputra Kusuma",
+ "Widya Kesita Lestari","Fariska Za’i Eka Wulandhani","Sinta Noviana","Estya Windi Ichayani","Putri Marinda Kelvi",
+ "Rachma Aulia Azzahra","Nur Aisyah","Salma Nurimtiyas Ramadhani","Arini Zumala Alhida","Vina Nur Aeni",
+ "Aulia Arrohmah","Briyan Suci Amelia","Remaya Febrianti","Salsa Febri Ningtyas","Diza Nur Lailya Arkan",
+ "Devi Aprilisa Dwi Laila Putri","Chantika Zahra Vebrianty","Olivia Citra Rahayu","Serli Erlinda","Fanasha Salsa Bela",
+ "Jessica Novia Alanda Chintyawati"
+];
+
+/* Cara mengisi perkenalan anggota (muncul saat nama diklik di bagian Anggota Kelas):
+   Tambahkan satu baris per anggota, dengan nama PERSIS sama seperti di array names. Semua properti opsional:
+   foto  : link gambar (misalnya dari Google Drive/Imgur/GitHub) atau data URI; kalau kosong, tampil inisial
+   lahir : "TAHUN-BULAN-HARI"
+   asal  : kota/desa asal
+   hobi  : hobi
+   kata  : kata-kata atau motto singkat
+   Contoh:
+   "Difvan Sastria Irgianata": {foto:"https://contoh.com/difvan.jpg", lahir:"2006-05-12", asal:"Bojonegoro", hobi:"Membaca", kata:"Menulis adalah cara merawat ingatan."}, */
+const PROFIL = {
+ "Difvan Sastria Irgianata": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/difvanfto.jpg", lahir:"2006-04-27", asal:"Bojonegoro", hobi:"Berolahraga", kata:"Come to Conquer."},
+ "Setyo Giri Aji Pamungkas": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/geri.jpg", lahir:"2007-03-21", asal:"Tuban", hobi:"Membaca & Berolahraga", kata:"Selalu berusaha dan berdoa agar mendapat mimpi yang kita inginkan."},
+ "Byan Saputra Kusuma": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/byan.jpg", lahir:"2007-06-07", asal:"Bojonegoro", hobi:"Bermain Billiard", kata:"Belajar adalah proses seumur hidup; mengajar adalah cara terbaik untuk terus belajar."},
+ "Briyan Suci Amelia": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/briyan.png", lahir:"2007-06-26", asal:"Bojonegoro", hobi:"Mencoba hal baru", kata:"In the end, we only regret the chances we didn’t take."},
+ "Aulia Arrohmah": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/aul.jpg", lahir:"2007-02-11", asal:"Tuban", hobi:"Memasak & Beauty Enthusiast", kata:"Jadilah seperti akar, tidak terlihat tetapi selalu berusaha menguatkan kehidupan."},
+ "M. Aldi Adi Tama": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/aldi.png", lahir:"2006-06-18", asal:"Bojonegoro", hobi:"Berolahraga", kata:"Setiap langkah kecil menuju pendidikan adalah investasi terbaik untuk masa depan. Tidak ada usaha yang sia-sia. Teruslah berjuang, karena di balik lelah hari ini, ada kebanggaan yang menantimu esok hari. Semangat, masa depan cerah sedang menunggumu!"},
+ "Chantika Zahra Vebrianty": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/acha.jpg", lahir:"2007-02-14", asal:"Jombang", hobi:"Menonton", kata:"Be your own hero."},
+ "Serli Erlinda": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/sherli.jpg", lahir:"2006-11-22", asal:"Bojonegoro", hobi:"Fotografi", kata:"Lebih baik mencoba, daripada tidak sama sekali"},
+ "Salsa Febri Ningtyas": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/salsa.jpeg", lahir:"2007-02-20", asal:"Bojonegoro", hobi:"Menyanyi", kata:"Segala sesuatu terjadi karena suatu alasan. Jalani, cintai, dan belajarlah darinya."},
+ "Remaya Febrianti": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/remaya.jpeg", lahir:"2007-02-26", asal:"Bojonegoro", hobi:"Public Speaking", kata:"Setetes keringat orang tuaku yang keluar, ada seribu langkahku untuk maju"},
+ "Rachma Aulia Azzahra": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/rachma.jpg", lahir:"2007-03-01", asal:"Bojonegoro", hobi:"Melukis", kata:"Dream big, work hard."},
+ "Nur Aisyah": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/nur.jpg", lahir:"2006-08-13", asal:"Tuban", hobi:"Mendengarkan Musik", kata:"Belajar hari ini, bersinar esok hari."},
+ "Fariska Za’i Eka Wulandhani": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/fariska.PNG", lahir:"2006-08-19", asal:"Bojonegoro", hobi:"Badminton", kata:"Just try, never give up"},
+ "Arini Zumala Alhida": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/arini.PNG", lahir:"2005-10-15", asal:"Bojonegoro", hobi:"Mendengarkan Musik", kata:"My life, my rules"},
+ "Anisa Nur Achasyah": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/anisa.jpg", lahir:"2006-12-19", asal:"Bojonegoro", hobi:"Membaca novel dan Membuat cerpen", kata:"Apa yang Tuhan siapkan jauh lebih baik dari apa yang kamu minta"},
+ "Cantika Atmariani": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/cantika.jpeg", lahir:"2007-03-15", asal:"Tuban", hobi:"Memasak dan Mendengarkan Musik", kata:"Jangan sibuk membandingkan perjalananmu dengan orang lain, karena setiap orang memiliki waktu dan jalannya masing-masing."},
+"Devi Aprilisa Dwi Laila Putri": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/lala.jpg", lahir:"2006-04-25", asal:"Bojonegoro", hobi:"Jalan jalan", kata:"Aku adalah proses yang belum selesai."},
+"Jessica Novia Alanda Chintyawati": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/jessica.jpg", lahir:"2007-09-11", asal:"Bojonegoro", hobi:"Menari", kata:"Tidak perlu sempurna untuk menjadi berharga."},
+ "Estya Windi Ichayani": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/ica.jpg", lahir:"2007-06-18", asal:"Bojonegoro", hobi:"Membaca", kata:"Hidup itu pilihan, maka pilihlah yang terbaik."},
+"Vina Nur Aeni": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/vina.jpg", lahir:"2005-09-16", asal:"Tuban", hobi:"Menonton cerita horor", kata:"Terus tumbuh tanpa harus kehilangan akar."},
+ "Salma Nurimtiyas Ramadhani": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/salma.jpg", lahir:"2006-10-13", asal:"Tuban", hobi:"Membaca", kata:"Setiap hari adalah kesempatan baru untuk menjadi lebih baik."},
+ "Olivia Citra Rahayu": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/olivia.png", lahir:"2007-01-12", asal:"Bojonegoro", hobi:"Membaca & Mendengarkan musik", kata:"Jadilah makna di antara banyaknya kata"},
+ "Sinta Noviana": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/novi.jpg", lahir:"2007-05-28", asal:"Tuban", hobi:"Hiking", kata:"Menyatu dengan alam untuk menemukan ketenangan diri."},
+ "Widya Kesita Lestari": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/kesi.jpg", lahir:"2007-03-05", asal:"Bojonegoro", hobi:"Berkebun dan Berpetualang", kata:"Teruslah berkembang agar masa depan mu Se cetar alis dan bulu mata yang kau ukir"},
+ "Putri Marinda Kelvi": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/kelvi.png", lahir:"2007-03-09", asal:"Bojonegoro", hobi:"Menyanyi, Bermain alat musik dan Berolahraga", kata:"Dream boldly, work sincerely, pray endlessly.."},
+ "Elsa Widiyana Sari": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/elsa.png", lahir:"2007-05-29", asal:"Bojonegoro", hobi:"Membaca novel", kata:"Embrace the journey."},
+ "Diza Nur Lailya Arkan": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/diza.jpg", lahir:"2006-11-28", asal:"Bojonegoro", hobi:"Memasak & Berolahraga", kata:"Keep moving, never look back"},
+ "Devy Citra Lestari": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/devy.jpg", lahir:"2008-01-10", asal:"Bojonegoro", hobi:"Menulis", kata:"Mundur satu langkah untuk berlari seribu langkah"},
+ "Martha Setya Ning Tiyas": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/martha.jpg", lahir:"2006-12-06", asal:"Bojonegoro", hobi:"Membaca Novel", kata:"Setiap jejak adalah aksara, setiap waktu adalah cerita."},
+ "Indah Qhoirunnisa": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/indah.jpg", lahir:"2007-05-22", asal:"Bojonegoro", hobi:"Membaca Novel", kata:"Aku ingin hidupku menjadi seperti sebuah tulisan: sederhana dalam kata, tetapi memiliki banyak makna bagi siapa pun yang membacanya."},
+ "Dina Permata Sari": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/dina.jpg", lahir:"2007-03-09", asal:"Bojonegoro", hobi:"Menulis", kata:"Chasing dreams, choosing peace."},
+ "Agustina Nur Rosyida": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/tina.jpg", lahir:"2006-08-14", asal:"Tuban", hobi:"Bernyanyi & Memasak", kata:"Be proud of yourself because no one knows. what it’s like to be you everyday."},
+ "Afiza Nuryatus Sholihah": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/afiza.jpg", lahir:"2007-05-15", asal:"Tuban", hobi:"Membaca", kata:"Jadilah diri kita sendiri karena itu lebih baik daripada berpura-pura menjadi orang lain yang baik."},
+ "Fanasha Salsa Bela": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/Fanasa.jpg", lahir:"2007-06-11", asal:"Bojonegoro", hobi:"Membaca Novel", kata:"Believe in yourself"},
+ "Dini Febri Zayyinatul Milah": {foto:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/dini.jpg", lahir:"2006-02-02", asal:"Tuban", hobi:"Storytelling", kata:"Stay resilient, keep growing, go with the flow, and learn from every fall"},
+};
+
+// Mata kuliah per semester: 1 = Ganjil 2025/2026, 2 = Genap 2025/2026, 3 = Ganjil 2026/2027 (berjalan).
+// Format: {c:"Kategori", t:"Nama", d:"Deskripsi", s:SKS, dos:"Dosen pengampu"}
+const SEM = {1:"Ganjil 2025/2026", 2:"Genap 2025/2026", 3:"Ganjil 2026/2027"};
+const SKS_TOTAL = {1:20, 2:19, 3:23};
+const MATKUL = {
+1:[
+ {c:"Kebangsaan",t:"Pendidikan Pancasila",d:"Memahami nilai Pancasila dalam kehidupan berbangsa",s:2,dos:"Muhamad Sholehhudin, S.S., M.Pd."},
+ {c:"Sastra",t:"Teori Sastra",d:"Konsep dasar untuk memahami dan menelaah karya sastra",s:2,dos:"Dr. Masnuatul Hawa, M.Pd."},
+ {c:"Bahasa",t:"Fonologi",d:"Bunyi bahasa dan sistem bunyi bahasa Indonesia",s:2,dos:"Abdul Ghoni Asror, M.Pd."},
+ {c:"Bahasa",t:"Linguistik Umum",d:"Pengantar ilmu bahasa dan cabang-cabangnya",s:2,dos:"Sutrimah, M.Pd."},
+ {c:"Keterampilan",t:"Keterampilan Berbicara",d:"Melatih berbicara secara efektif dan percaya diri",s:3,dos:"Joko Setiyono, M.Pd."},
+ {c:"Keterampilan",t:"Keterampilan Menyimak",d:"Menyimak dengan cermat, kritis, dan reflektif",s:3,dos:"Dr. Cahyo Hasanudin, M.Pd."},
+ {c:"Sastra",t:"Sejarah Sastra",d:"Perjalanan dan perkembangan sastra Indonesia",s:2,dos:"Muhamad Sholehhudin, S.S., M.Pd."},
+ {c:"Kependidikan",t:"Psikologi Pendidikan",d:"Memahami perkembangan dan perilaku peserta didik",s:2,dos:"Sutrimah, M.Pd."},
+ {c:"Kebangsaan",t:"Pendidikan Agama",d:"Nilai keimanan dan akhlak dalam kehidupan",s:2,dos:"Joko Setiyono, M.Pd."}
+],
+2:[
+ {c:"Keterampilan",t:"Keterampilan Menulis",d:"Menyusun gagasan menjadi tulisan yang runtut",s:3,dos:"Dr. Cahyo Hasanudin, M.Pd."},
+ {c:"Kebangsaan",t:"Pendidikan Kewarganegaraan",d:"Hak, kewajiban, dan peran warga negara",s:2,dos:"Ayu Fitrianingsih, M.Pd."},
+ {c:"Keterampilan",t:"Keterampilan Membaca",d:"Membaca dengan pemahaman dan daya kritis",s:3,dos:"Joko Setiyono, M.Pd."},
+ {c:"Bahasa",t:"Etnolinguistik",d:"Hubungan bahasa dengan budaya masyarakat penuturnya",s:2,dos:"Dr. Masnuatul Hawa, M.Pd."},
+ {c:"Keterampilan",t:"Terapi Wicara",d:"Dasar pemahaman dan pemulihan gangguan berbicara",s:2,dos:"Abdul Ghoni Asror, M.Pd."},
+ {c:"Keterampilan",t:"Kepewaraan",d:"Seni berbicara di depan umum dan memandu acara",s:3,dos:"Joko Setiyono, M.Pd."},
+ {c:"Bahasa",t:"Bahasa Indonesia",d:"Penggunaan bahasa Indonesia yang baik dan benar",s:2,dos:"Sutrimah, M.Pd."},
+ {c:"Sastra",t:"Apresiasi Puisi",d:"Menikmati dan memaknai puisi",s:2,dos:"Drs. Syahrul Udin, M.Pd."}
+],
+3:[
+ {c:"Bahasa",t:"Morfologi",d:"Pembentukan dan struktur kata bahasa Indonesia",s:2,dos:"Muhamad Sholehhudin, S.S., M.Pd."},
+ {c:"Bahasa",t:"BIPA",d:"Bahasa Indonesia bagi Penutur Asing",s:3,dos:"Dr. Ima Isnaini TR, M.Pd."},
+ {c:"Sastra",t:"Apresiasi Prosa Fiksi",d:"Menikmati dan memahami cerpen serta novel",s:2,dos:"Abdul Ghoni Asror, M.Pd."},
+ {c:"Sastra",t:"Kritik Sastra",d:"Menilai dan menafsirkan karya sastra",s:2,dos:"Sutrimah, M.Pd."},
+ {c:"Sastra",t:"Kajian Konservasi Sastra",d:"Merawat sastra, mitos, dan tradisi lokal",s:2,dos:"Muhamad Sholehhudin, S.S., M.Pd."},
+ {c:"Keterampilan",t:"Jurnalistik & Majalah Sekolah",d:"Menulis berita dan mengelola majalah",s:3,dos:"Joko Setiyono, M.Pd."},
+ {c:"Kependidikan",t:"Belajar & Pembelajaran",d:"Teori dan proses belajar peserta didik",s:2,dos:"Abdul Ghoni Asror, M.Pd."},
+ {c:"Kependidikan",t:"Media Pembelajaran",d:"Merancang media ajar yang menarik",s:3,dos:"Abdul Ghoni Asror, M.Pd."},
+ {c:"Kependidikan",t:"Filsafat Pendidikan",d:"Dasar pemikiran dan arah pendidikan",s:2,dos:"Sutrimah, M.Pd."},
+ {c:"Kebangsaan",t:"Ke-PGRI-an",d:"Sejarah dan semangat organisasi guru",s:2,dos:"Sutrimah, M.Pd."}
+]};
+
+/* ===== FEATURE KELAS =====
+   Tiap anggota menulis satu feature. Tambahkan SATU objek per tulisan ke array FEATURES:
+   {j:"Judul", p:"Nama Penulis (sama persis dengan array names)", d:"TAHUN-BULAN-HARI",
+    r:"Ringkasan 1-2 kalimat", isi:["Paragraf 1","Paragraf 2", ...], link:"https://... (opsional, jika tulisan ada di tempat lain)"}
+   Jumlah tulisan terkumpul dan bilah progres dihitung otomatis. */
+const FEATURES = [
+  {j:"Tukumpukan SKS dan Segunung Tugas", p:"Elsa Widiyana Sari", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/elsa.jpg"},
+ {j:"Menikmati Hangatnya Nganget Wisata Alam untuk Melepas Penat", p:"Cantika Atmariani", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/cantika.jpg"},
+ {j:"Masa Depan Tradisi Sedekah Bumi", p:"Afiza Nuryatus Sholihah", link:"https://diaksara25.github.io/Diaksara/afiza.pdf"},
+ {j:"RA. Kartini Sang Pelopor  'Emansipasi Wanita' di Indonesia", p:"Martha Setya Ning Tiyas", link:"https://diaksara25.github.io/Diaksara/martha.png"},
+ {j:"Jejak Langkah Masa Lalu: Cerita di Balik Berdirinya Desa Kunci", p:"Anisa Nur Achasyah", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/anisa.png"},
+ {j:"Proses Mistis dan Alami, Menguak Misteri Gua Ngerong", p:"Agustina Nur Rosyida", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/tina.jpeg"},
+ {j:"Menyingkap Tabir Fonologi:Semangat Mahasiswa di Ruang Kelas", p:"Dina Permata Sari", link:"https://diaksara25.github.io/Diaksara/dina.pdf"},
+ {j:"Secuil Rezeki di Balik Keramaian Kampus", p:"Indah Qhoirunnisa", link:"https://diaksara25.github.io/Diaksara/indah.pdf"},
+ {j:"Jendela Sekolah", p:"Devy Citra Lestari", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/devy.png"},
+ {j:"Ketika Mikrofon dan Buku Kuliah Berjalan Seirama", p:"Dini Febri Zayyinatul Milah", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/dini.png"},
+ {j:"Membaca Jendela Dunia", p:"M. Aldi Adi Tama", link:"https://diaksara25.github.io/Diaksara/aldi.pdf"},
+ {j:"Ketika Pasung Dilepas di Desa Kapas", p:"Difvan Sastria Irgianata", link:"https://diaksara25.github.io/Diaksara/difvan.pdf"},
+ {j:"Menghidupkan Budaya Baca Dari Bangku Kuliah", p:"Setyo Giri Aji Pamungkas", link:"https://diaksara25.github.io/Diaksara/geri.pdf"},
+ {j:"Jejak Literasi Digital Menghidupkan Ruh Majalah Sekolah di Era Layar Sentuh", p:"Byan Saputra Kusuma", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/byan.png"},
+ {j:"Indonesia Resmi Juara Asean Cup 2026", p:"Widya Kesita Lestari", link:"https://diaksara25.github.io/Diaksara/kesi.pdf"},
+ {j:"Merajut Kata di Ruang Kelas Sederhana", p:"Fariska Za’i Eka Wulandhani", link:"https://diaksara25.github.io/Diaksara/fariska.pdf"},
+ {j:"Dari Pesisir Pantura, Menyebabkan Proses Wisata Bahari Lamongan", p:"Sinta Noviana", link:"https://diaksara25.github.io/Diaksara/novi.pdf"},
+ {j:"Sedekaah Bumi Desa Tondomulo, Sawuran", p:"Estya Windi Ichayani", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/ica.png"},
+ {j:"Menjaga Nyala Pelita Malam", p:"Putri Marinda Kelvi", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/kelvi.jpg"},
+ {j:"Rumah Doro Gepek, Mengenal Arsitektur Tradisional Warisan Keluarga", p:"Rachma Aulia Azzahra", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/rachma.png"},
+ {j:"Dibalik Seragam Lusuh Tersimpan Mimipi Yang Besar", p:"Nur Aisyah", link:"https://diaksara25.github.io/Diaksara/aisah.pdf"},
+ {j:"AI di tengah Perkuliahan, Membantu Belahar atau Membantu Mahasiswa Bergantung", p:"Salma Nurimtiyas Ramadhani", link:"https://diaksara25.github.io/Diaksara/salma.pdf"},
+ {j:"Generasi yang Ramai di Layar Sepi Dalam Nyata", p:"Arini Zumala Alhida", link:"https://diaksara25.github.io/Diaksara/arini.pdf"},
+ {j:"Di Balik Riuh Pasar Ada Perjuangan Seorang Ibu", p:"Vina Nur Aeni", link:"https://diaksara25.github.io/Diaksara/vina.pdf"},
+ {j:"My Journey", p:"Aulia Arrohmah", link:"https://diaksara25.github.io/Diaksara/aul.pdf"},
+ {j:"Rencana Ultah di Telaga Sarangan Yang Berakhir Duka", p:"Briyan Suci Amelia", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/amel.png"},
+ {j:"Meraih Mimpi", p:"Remaya Febrianti", link:"https://diaksara25.github.io/Diaksara/remaya.pdf"},
+ {j:"Prau Besi Kuno Desa Ngraho", p:"Salsa Febri Ningtyas", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/salsa.jpg"},
+ {j:"Tiga Puluh Tahun Menjaga Rasa Ledre Warisan Ibu", p:"Diza Nur Lailya Arkan", link:"https://diaksara25.github.io/Diaksara/diza.pdf"},
+ {j:"Waduk Sonorejo Dari Sumber Air Wisata", p:"Devi Aprilisa Dwi Laila Putri", link:"https://diaksara25.github.io/Diaksara/lala.pdf"},
+ {j:"Menemukan Kemandirian di Tanah Rantau", p:"Chantika Zahra Vebrianty", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/aca.png"},
+ {j:"Operasi Keselamatan Semeru, Wujub Nyata Keamanan di Bojonegoro", p:"Olivia Citra Rahayu", link:"https://raw.githubusercontent.com/Diaksara25/Diaksara/main/olivia.jpg"},
+ {j:"Jejak Sunyi di Balik Riuh Sawah, Menyingkap Tabir Asal Usul Nama dan Kepemimpinan Desa Tegalkodo", p:"Serli Erlinda", link:"https://diaksara25.github.io/Diaksara/serli.pdf"},
+ {j:"Meniti Jalan Lurus di Margomulyo", p:"Fanasha Salsa Bela", link:"https://diaksara25.github.io/Diaksara/fanasa.pdf"},
+ {j:"Jejak Elang Bondol dan Kisah Tejo Lelono", p:"Jessica Novia Alanda Chintyawati", link:"https://diaksara25.github.io/Diaksara/jesica.pdf"},
+];
+
+/* Cara menambah edisi majalah baru: cukup tambahkan SATU objek ke array MAGAZINES di bawah.
+   Properti wajib: vol, ed, d (TAHUN-BULAN-HARI), t (judul/tema), n (ringkasan).
+   Opsional: read (link baca), pdf (link unduh), cover (link gambar sampul), toc (daftar isi, array judul tulisan).
+   Website otomatis mengelompokkan per volume, mengurutkan, membuat chip filter, dan menghitung jumlah edisi. */
+const MAGAZINES = [
+ // Tanggal di bawah hanyalah contoh. Ganti dengan tanggal terbit yang sebenarnya.
+ {vol:1, ed:1, d:"2026-11-15", t:"Edisi Perdana", n:"Edisi perdana Suara Diaksara.: mengenal budaya dan literasi lokal dari tangan mahasiswa Diaksara.."}
+];
+
+
+/* ===== OPINI & ARTIKEL =====
+   Format sama dengan FEATURES: {j:"Judul", p:"Nama Penulis", d:"TAHUN-BULAN-HARI", r:"Ringkasan", isi:["Paragraf 1"], link:"https://..."}
+   Tambahkan satu objek per tulisan di array yang sesuai. */
+const OPINI = [];
+const ARTIKEL = [];
+const KOLOM = [];
+/* ===== UTIL ===== */
+const $ = s => document.querySelector(s);
+const BLN = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const tgl = d => { if (!d) return ""; const [y,m,t] = d.split("-").map(Number); return t + " " + BLN[m-1] + " " + y; };
+const safeUrl = u => /^https?:\/\//i.test(u) ? esc(u) : "#";
+const MAG = MAGAZINES.slice().sort((a,b) => b.vol - a.vol || b.ed - a.ed);
+const inisial = n => { const w = n.trim().split(/\s+/); return (w[0][0] + (w[1] ? w[1][0] : "")).toUpperCase(); };
+
+const G=["ꦲ", "ꦤ", "ꦕ", "ꦫ", "ꦏ", "ꦢ", "ꦠ", "ꦱ", "ꦮ", "ꦭ", "ꦥ", "ꦝ", "ꦗ", "ꦪ", "ꦚ", "ꦩ", "ꦒ", "ꦧ", "ꦛ", "ꦔ"];
+$("#ring").innerHTML=G.map((c,i)=>`<span style="--i:${i}">${c}</span>`).join("");
+document.documentElement.classList.add("js");
+$("#ring2").innerHTML = G.filter((c, i) => i % 2 === 0).map((c, i) => `<span style="--i:${i}">${c}</span>`).join("");
+$(".hero h1").innerHTML = "Diaksara".split("").map((c, i) => `<b style="--i:${i}">${c}</b>`).join("") + "<span>.</span>";
+/* ===== TENTANG ===== */
+const nMk = MATKUL[1].length + MATKUL[2].length + MATKUL[3].length;
+$("#stats").innerHTML = [["Anggota",names.length],["Mata kuliah",nMk],["Edisi majalah",MAG.length],["Tingkat","II"]]
+ .map(s => `<div class="st"><b>${s[1]}</b><span>${s[0]}</span></div>`).join("");
+$("#redNote").textContent = "Total " + names.length + " anggota, 5 tim kerja";
+
+/* ===== ANGGOTA ===== */
+$("#members").innerHTML = names.map((n, i) => `<button class="mb" data-n="${i}"><span class="g">${G[i%20]}</span><span class="nm">${esc(n)}</span></button>`).join("");
+function openProfil(i) {
+ const n = names[i], p = PROFIL[n] || {};
+ const f = [["Tanggal lahir", p.lahir ? tgl(p.lahir) : ""], ["Asal", p.asal], ["Hobi", p.hobi]].filter(r => r[1]);
+ openModal(`<div style="text-align:center"><div class="pf">${p.foto ? `<img src="${safeUrl(p.foto)}" alt="Foto ${esc(n)}">` : esc(inisial(n))}</div><span class="tag">Kulawarga Diaksara.</span><h2 style="padding:0">${esc(n)}</h2></div>` +
+  (f.length ? `<dl class="dl">${f.map(r => `<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl>` : "") +
+  (p.kata ? `<div class="quote">“${esc(p.kata)}”</div>` : "") +
+  (!f.length && !p.kata ? `<p class="sub" style="text-align:center">Perkenalan belum diisi.</p>` : ""));
+}
+
+/* ===== MATA KULIAH ===== */
+let mkSem = 3;
+function renderMatkul() {
+ const list = MATKUL[mkSem] || [];
+ $("#mkTabs").innerHTML = [1,2,3].map(n => `<button class="pill${n === mkSem ? " on" : ""}" data-mk="${n}" role="tab" aria-selected="${n === mkSem}">Semester ${n}${n === 3 ? " (sekarang)" : ""}</button>`).join("");
+ $("#mkNote").textContent = "Semester " + mkSem + ", " + SEM[mkSem] + ", total " + SKS_TOTAL[mkSem] + " SKS";
+ $("#mkGrid").innerHTML = list.map((m, i) => `<div class="mk c-${esc(m.c)}"><span class="g">${G[(i*3+mkSem*7)%20]}</span><div class="top"><span class="tag">${esc(m.c)}</span><span class="sks">${m.s} SKS</span></div><h3>${esc(m.t)}</h3><p>${esc(m.d)}</p><p class="dos"><small>Dosen pengampu</small>${esc(m.dos)}</p></div>`).join("") || '<p class="note">Mata kuliah semester ini belum diisi.</p>';
+}
+renderMatkul();
+
+/* ===== TULISAN KULAWARGA ===== */
+const KAT = {feature:"Feature", opini:"Opini", artikel:"Artikel", kolom:"Kolom"};
+const norm = (arr, k) => arr.map(f => Object.assign({j:"Tanpa judul", d:"", r:"", isi:[], k}, f));
+const FS = [].concat(norm(FEATURES,"feature"), norm(OPINI,"opini"), norm(ARTIKEL,"artikel"), norm(KOLOM,"kolom")).sort((a,b) => String(b.d).localeCompare(String(a.d)));
+const done = new Set(FS.map(f => f.p)).size;
+$("#prog").innerHTML = `<span><b>${done}</b> dari ${names.length} kulawarga sudah menulis</span><div class="bar"><i style="width:${Math.round(done / names.length * 100)}%"></i></div>`;
+const tipe = u => /\.pdf(\?|$)/i.test(u) ? "PDF" : /\.(png|jpe?g|webp|gif)(\?|$)/i.test(u) ? "Gambar" : "Tautan";
+let wKat = "semua", wQ = "";
+function renderTulisan() {
+ const cnt = k => FS.filter(f => k === "semua" || f.k === k).length;
+ $("#wTabs").innerHTML = ["semua","feature","opini","artikel","kolom"].map(k => `<button class="pill${k === wKat ? " on" : ""}" data-w="${k}">${k === "semua" ? "Semua" : KAT[k]} (${cnt(k)})</button>`).join("");
+ const q = wQ.trim().toLowerCase();
+ const list = FS.map((f, i) => ({f, i})).filter(o => (wKat === "semua" || o.f.k === wKat) && (!q || (o.f.j + " " + o.f.p).toLowerCase().includes(q)));
+ $("#fGrid").innerHTML = list.map(o => {
+  const f = o.f, ext = f.link && !(f.isi && f.isi.length);
+  const inner = `<span class="wk k-${f.k}">${KAT[f.k]}</span><h3>${esc(f.j)}</h3>${f.r ? `<p>${esc(f.r)}</p>` : ""}<span class="wby"><span class="av">${esc(inisial(f.p))}</span><span class="wn">${esc(f.p)}${f.d ? `<small>${tgl(f.d)}</small>` : ""}</span>${f.link ? `<span class="wt">${tipe(f.link)}</span>` : ""}</span>`;
+  return ext ? `<a class="wc" href="${safeUrl(f.link)}" target="_blank" rel="noopener">${inner}</a>` : `<button class="wc" data-f2="${o.i}">${inner}</button>`;
+ }).join("") || `<p class="note wempty">${q ? "Tidak ada tulisan yang cocok." : wKat === "semua" ? "Tulisan pertama segera hadir." : "Tulisan " + KAT[wKat].toLowerCase() + " segera hadir."}</p>`;
+}
+renderTulisan();
+$("#wSearch").addEventListener("input", e => { wQ = e.target.value; renderTulisan(); });
+function openFeature(i) {
+ const f = FS[i];
+ openModal(`<span class="tag">${KAT[f.k]}</span><h2>${esc(f.j)}</h2><p class="sub">Oleh ${esc(f.p)}${f.d ? ", " + tgl(f.d) : ""}</p><div class="art">` +
+  (f.isi || []).map(t => `<p>${esc(t)}</p>`).join("") + `</div>` +
+  (f.link ? `<div class="acts"><a class="btn sec" href="${safeUrl(f.link)}" target="_blank" rel="noopener">Buka tulisan asli</a></div>` : ""));
+}
+
+/* ===== MAJALAH ===== */
+function coverHTML(m) {
+ if (m.cover) return `<div class="cover img"><img src="${safeUrl(m.cover)}" alt="Sampul ${esc(m.t)}" loading="lazy"></div>`;
+ return `<div class="cover"><small>Vol. ${m.vol}, Edisi ${m.ed}</small><b>Suara<br>Diaksara.</b><em>${esc(m.t)}</em></div>`;
+}
+const L = MAG[0];
+$("#latest").innerHTML = `<div class="holo">${coverHTML(L)}<i></i><i></i></div>` + `<div class="txt"><h2>Suara Diaksara.</h2>
+<p class="desc">Majalah bertema edukasi budaya dan literasi lokal untuk mahasiswa, guru, dosen, dan masyarakat umum. Setiap tulisan lahir dari tangan ${names.length} kulawarga Diaksara..</p>
+<p class="meta">${tgl(L.d)}, ${esc(L.t)}</p><div class="btns">` +
+ (L.read ? `<a class="btn" href="${safeUrl(L.read)}" target="_blank" rel="noopener">Baca Edisi Terbaru</a>` : `<button class="btn" disabled>Segera Terbit</button>`) +
+ `<button class="btn sec" id="toRed">Struktur Redaksi</button></div></div>`;
+
+let filterVol = "all";
+function renderEdisi() {
+ const vols = [...new Set(MAG.map(m => m.vol))];
+ $("#filter").innerHTML = [["all","Semua"]].concat(vols.map(v => [v, "Vol. " + v]))
+  .map(f => `<button class="pill${String(f[0]) === String(filterVol) ? " on" : ""}" data-f="${f[0]}">${f[1]}</button>`).join("");
+ $("#vols").innerHTML = vols.filter(v => filterVol === "all" || v === Number(filterVol)).map(v =>
+  `<div class="vol"><h3>Volume ${v}</h3><div class="grid">` + MAG.map((m, i) => ({m, i})).filter(o => o.m.vol === v).map(o =>
+   `<div class="card ed" tabindex="0" role="button" data-m="${o.i}"><div class="th">${coverHTML(o.m)}</div><div class="bd"><span class="d">${tgl(o.m.d)}</span><h3>${esc(o.m.t)}</h3><p>${esc(o.m.n)}</p><span class="btn">Baca</span></div></div>`).join("") + `</div></div>`).join("");
+}
+renderEdisi();
+function openMag(i) {
+ const m = MAG[i];
+ openModal(coverHTML(m) + `<span class="tag">Vol. ${m.vol}, Edisi ${m.ed}</span><h2>${esc(m.t)}</h2><p class="sub">Terbit ${tgl(m.d)}</p><p>${esc(m.n)}</p>` +
+  (m.toc && m.toc.length ? `<h3>Daftar Isi</h3><ul>${m.toc.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : "") +
+  `<div class="acts" style="margin-top:16px">` + (m.read ? `<a class="btn" href="${safeUrl(m.read)}" target="_blank" rel="noopener">Baca Majalah</a>` : `<i>Segera terbit</i>`) +
+  (m.pdf ? `<a class="btn sec" href="${safeUrl(m.pdf)}" target="_blank" rel="noopener">Unduh PDF</a>` : "") + `</div>`);
+}
+function setTab(t) {
+ ["edisi","feature","redaksi"].forEach(k => {
+  $("#panel-" + k).hidden = k !== t;
+  $("#tab-" + k).classList.toggle("on", k === t);
+  $("#tab-" + k).setAttribute("aria-selected", k === t);
+ });
+}
+
+/* ===== MODAL ===== */
+let lastFocus = null;
+function openModal(html) {
+ lastFocus = document.activeElement;
+ $("#mdBody").innerHTML = html; $("#md").scrollTop = 0;
+ $("#ov").classList.add("show"); $("#ov").setAttribute("aria-hidden","false");
+ document.body.style.overflow = "hidden"; $("#xBtn").focus();
+}
+function closeModal() {
+ $("#ov").classList.remove("show"); $("#ov").setAttribute("aria-hidden","true");
+ document.body.style.overflow = ""; if (lastFocus) lastFocus.focus();
+}
+$("#xBtn").onclick = closeModal;
+$("#ov").addEventListener("click", e => { if (e.target.id === "ov") closeModal(); });
+document.addEventListener("keydown", e => {
+ if (e.key === "Escape" && $("#ov").classList.contains("show")) return closeModal();
+ if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("ed")) { e.preventDefault(); openMag(+e.target.dataset.m); }
+});
+document.addEventListener("click", e => {
+ const ed = e.target.closest(".ed"); if (ed) return openMag(+ed.dataset.m);
+ const mb = e.target.closest(".mb"); if (mb) return openProfil(+mb.dataset.n);
+ const fr = e.target.closest("[data-f2]"); if (fr) return openFeature(+fr.dataset.f2);
+ const w = e.target.closest("[data-w]"); if (w) { wKat = w.dataset.w; return renderTulisan(); }
+ const f = e.target.closest("[data-f]"); if (f) { filterVol = f.dataset.f; return renderEdisi(); }
+ const mk = e.target.closest("[data-mk]"); if (mk) { mkSem = +mk.dataset.mk; return renderMatkul(); }
+ const t = e.target.closest("[data-tab]"); if (t) return setTab(t.dataset.tab);
+ if (e.target.id === "toRed") { setTab("redaksi"); $("#tab-redaksi").scrollIntoView({behavior:"smooth", block:"center"}); }
+});
+
+
+/* ===== ANIMASI ===== */
+const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+if ("IntersectionObserver" in window && !reduced) {
+ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+ const reveal = () => document.querySelectorAll(".sec-h,.latest,.two>*,.mb,.mk,.wc,.ed,.tm,.nd,.prog").forEach((el, i) => {
+  if (el.dataset.rv) return; el.dataset.rv = 1; el.classList.add("rv"); el.style.setProperty("--d", (i % 8) * .06 + "s"); io.observe(el);
+ });
+ reveal();
+ ["#fGrid","#mkGrid","#vols"].forEach(s => new MutationObserver(reveal).observe($(s), {childList:true}));
+ const cio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; cio.unobserve(e.target);
+  const el = e.target, n = +el.textContent; if (!n) return;
+  const t0 = performance.now(); el.textContent = 0;
+  const step = t => { const k = Math.min(1, (t - t0) / 1200); el.textContent = Math.round(n * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+ }), {threshold:.6});
+ document.querySelectorAll("#stats .st b").forEach(b => cio.observe(b));
+}
+
+/* ===== FUTURISTIK ===== */
+(function () {
+ const cv = $("#bg"), cx = cv.getContext("2d"), dpr = Math.min(devicePixelRatio || 1, 2);
+ let W, H, P = [], mx = -999, my = -999;
+ function size() {
+  W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  P = Array.from({length: Math.min(64, Math.round(W * H / 24000))}, () => ({x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .4, vy: (Math.random() - .5) * .4, g: G[Math.random() * 20 | 0], s: 14 + Math.random() * 26, r: Math.random() * 6.28, vr: (Math.random() - .5) * .008, c: Math.random() < .3 ? "255,224,138" : "242,181,60"}));
+ }
+ function frame() {
+  cx.clearRect(0, 0, W, H);
+  for (const p of P) {
+   if (!reduced) { p.x += p.vx; p.y += p.vy; p.r += p.vr; }
+   if (p.x < -40) p.x = W + 40; if (p.x > W + 40) p.x = -40; if (p.y < -40) p.y = H + 40; if (p.y > H + 40) p.y = -40;
+   cx.save(); cx.translate(p.x, p.y); cx.rotate(p.r); cx.font = p.s + 'px "Noto Sans Javanese"'; cx.textAlign = "center"; cx.textBaseline = "middle";
+   cx.fillStyle = "rgba(" + p.c + ",.2)"; cx.fillText(p.g, 0, 0); cx.restore();
+   cx.fillStyle = "rgba(" + p.c + ",.7)"; cx.fillRect(p.x - 1, p.y - 1, 2, 2);
+  }
+  for (let i = 0; i < P.length; i++) {
+   const a = P[i];
+   for (let j = i + 1; j < P.length; j++) {
+    const b = P[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+    if (d < 140) { cx.strokeStyle = "rgba(242,181,60," + .16 * (1 - d / 140) + ")"; cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke(); }
+   }
+   const d = Math.hypot(a.x - mx, a.y - my);
+   if (d < 190) { cx.strokeStyle = "rgba(255,224,138," + .5 * (1 - d / 190) + ")"; cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(mx, my); cx.stroke(); if (!reduced) { a.x += (a.x - mx) * .002; a.y += (a.y - my) * .002; } }
+  }
+  if (!reduced) requestAnimationFrame(frame);
+ }
+ addEventListener("pointermove", e => { mx = e.clientX; my = e.clientY; });
+ addEventListener("resize", () => { size(); if (reduced) frame(); });
+ size(); frame();
+})();
+
+const nmHTML = names.map(n => `<span>${esc(n)}</span>`).join("");
+$("#nm").innerHTML = `<div class="track">${nmHTML}</div><div class="track">${nmHTML}</div>`;
+$("#fw").innerHTML = G.slice(0, 12).map((c, i) => `<span style="--i:${i}">${c}</span>`).join("");
+
+const WORDS = ["menulis dari akar budaya lokal","membaca dunia lewat aksara","merawat bahasa Indonesia","menerbitkan Suara Diaksara."];
+let wi = 0, ci = 0, del = false; const tw = $("#tw");
+function type() {
+ const w = WORDS[wi]; ci += del ? -1 : 1; tw.textContent = w.slice(0, ci);
+ let t = del ? 28 : 65;
+ if (!del && ci === w.length) { del = true; t = 1600; } else if (del && ci === 0) { del = false; wi = (wi + 1) % WORDS.length; t = 350; }
+ setTimeout(type, t);
+}
+if (reduced) tw.textContent = WORDS[0]; else type();
+
+const pg = $("#pg");
+const sp = () => pg.style.setProperty("--p", (scrollY / ((document.documentElement.scrollHeight - innerHeight) || 1)).toFixed(4));
+addEventListener("scroll", sp, {passive: true}); sp();
+document.addEventListener("pointermove", e => {
+ const c = e.target.closest && e.target.closest(".card,.mb,.mk,.wc,.tm,.nd,.st");
+ if (c) { const r = c.getBoundingClientRect(); c.style.setProperty("--mx", e.clientX - r.left + "px"); c.style.setProperty("--my", e.clientY - r.top + "px"); }
+});
+</script>
+</body>
+</html>
