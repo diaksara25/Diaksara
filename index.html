@@ -351,7 +351,6 @@ section::before{content:"";position:absolute;inset:0;z-index:0;background:var(--
 <div class="marq" id="nm" aria-hidden="true"></div>
 <div class="roll" id="members"></div>
 </div></section>
-
 <div class="band rev"></div>
 <section id="matkul" class="dk"><div class="wrap">
 <h2 class="sec-h">Yang kami pelajari</h2>
@@ -523,9 +522,17 @@ const MAGAZINES = [
 /* ===== OPINI, ARTIKEL & ESSAI =====
    Format sama dengan FEATURES: {j:"Judul", p:"Nama Penulis", d:"TAHUN-BULAN-HARI", r:"Ringkasan", isi:["Paragraf 1"], link:"https://..."}
    Tambahkan satu objek per tulisan di array yang sesuai. */
-const OPINI = [];
-const ARTIKEL = [];
-const ESSAI = [];
+const OPINI = [
+ {j:"Pahlawan yang Jarang Kita Sapa", p:"Difvan Sastria Irgianata", link:"https://diaksara25.github.io/Diaksara/opini difvan.pdf"},
+ {j:"Pembangunan Jalan Jangan Sampai Mengorbankan Keselamatan Pengendara", p:"Diza Nur Lailya Arkan", link:"https://diaksara25.github.io/Diaksara/diza opini.pdf"},
+];
+const ARTIKEL = [
+ {j:"Analisis Peristiwa Pengunduran Diri Gibran Rakabuming Raka dari Jabatan Wali Kota Surakarta", p:"Anisa Nur Achasyah", link:"https://diaksara25.github.io/Diaksara/anisa artikel.pdf"},
+];
+const ESSAI = [
+ {j:"Mempercantik Wajah Kota Bojonegoro melalui Pembangunan Tanggul Sungai Bermotif Khas Daerah", p:"Cantika Atmariani", link:"https://diaksara25.github.io/Diaksara/cantika essai.pdf"},
+ {j:"Banjir Bandang yang Terus Mengancam Kecamatan Gondang, Bojonegoro: Antara Faktor Alam dan Kerusakan Lingkungan", p:"Martha Setya Ning Tiyas", link:"https://diaksara25.github.io/Diaksara/marta essai.pdf"},
+];
 /* ===== UTIL ===== */
 const $ = s => document.querySelector(s);
 const BLN = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
